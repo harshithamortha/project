@@ -2,6 +2,7 @@ package com.cg.bookmydoctor.impl;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.bookmydoctor.dao.IAdminRepository;
@@ -12,6 +13,7 @@ import com.cg.bookmydoctor.service.IAdminService;
 
 @Service
 public class AdminServiceImpl  implements IAdminService{
+	@Autowired
 	private IAdminRepository adminRepository;
 	
 	@Override
