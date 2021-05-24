@@ -8,6 +8,7 @@ public class BookMyDoctorApp11Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BookMyDoctorApp11Application.class, args);
+		System.out.println("Started at 8089");
 	}
 
 }

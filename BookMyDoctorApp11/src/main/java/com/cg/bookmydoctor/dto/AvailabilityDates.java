@@ -1,15 +1,49 @@
 package com.cg.bookmydoctor.dto;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "AvailabilityDates")
 public class AvailabilityDates implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@Column(name = "availabiltyId")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int availabilityId;
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	private Doctor doctor;
+	
+	@Column(name="fromDate")
 	private Date fromDate;
+	
+	@Column(name="toDate")
 	private Date toDate;
+	
+	public AvailabilityDates() {
+
+	}
+	
+	public AvailabilityDates(int availabilityId, Date fromDate, Date toDate) {
+		super();
+		this.availabilityId = availabilityId;
+		this.fromDate =  fromDate;
+		this.toDate = toDate;
+	}
+	
+	
 	public int getAvailabilityId() {
 		return availabilityId;
 	}
@@ -37,11 +71,14 @@ public class AvailabilityDates implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+
 	@Override
 	public String toString() {
 		return "AvailabilityDates [availabilityId=" + availabilityId + ", doctor=" + doctor + ", fromDate=" + fromDate
 				+ ", toDate=" + toDate + "]";
 	}
+	
 	
 	
 }

@@ -1,4 +1,4 @@
-package com.cg.bookmydoctor.dao;
+package com.cg.bookmydoctor.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,12 +1,45 @@
 package com.cg.bookmydoctor.dto;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "FeedBack")
 public class FeedBack {
 	
+	@Id
+	@Column(name = "ratingId")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int ratingId;
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	private Patient patient;
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	private Doctor doctor;
+	
+	@Column(name="rating")
 	private int rating;
+	
+	@Column(name="feedback")
 	private String feedback;
+	
+	public FeedBack() {
+		
+	}
+	
+	public FeedBack(int ratingId, int rating, String feedback) {
+		super();
+		this.ratingId = ratingId;
+		this.rating =  rating;
+		this.feedback = feedback;
+	}
 	
 	public int getRatingId() {
 		return ratingId;
@@ -38,12 +71,13 @@ public class FeedBack {
 	public void setFeedback(String feedback) {
 		this.feedback = feedback;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "FeedBack [ratingId=" + ratingId + ", patient=" + patient + ", doctor=" + doctor + ", rating=" + rating
 				+ ", feedback=" + feedback + "]";
 	}
+	
 	
 
 }

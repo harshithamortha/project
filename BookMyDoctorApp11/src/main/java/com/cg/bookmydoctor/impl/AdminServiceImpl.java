@@ -2,12 +2,13 @@ package com.cg.bookmydoctor.impl;
 
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cg.bookmydoctor.dao.IAdminRepository;
 import com.cg.bookmydoctor.dto.Admin;
 import com.cg.bookmydoctor.exception.AdminException;
+import com.cg.bookmydoctor.repository.IAdminRepository;
 import com.cg.bookmydoctor.service.IAdminService;
 
 
@@ -23,7 +24,8 @@ public class AdminServiceImpl  implements IAdminService{
 	
 	@Override
 	public Admin removeAdmin(Admin admin) {
-		return adminRepository.
+		adminRepository.delete(admin);
+		return admin;	
 	}
 	
 	@Override
